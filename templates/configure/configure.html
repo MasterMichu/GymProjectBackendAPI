@@ -1,0 +1,37 @@
+<html>
+<head>
+    <style media="screen">
+        body {
+        background-color: lightblue;
+        text-align: center;
+        margin-top: 10%;
+        }
+       p {
+       font-size:240;
+       font-family: verdana;
+       }
+       h1 {
+       text-align: center;
+
+       }
+       input {
+       }
+
+    </style>
+</head>
+
+<body>
+<h1> uzupelnij swoje dane </h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input name="goal" id="goal" placeholder="enter your goals here" />
+            <legend>Enter your account type</legend>
+            <input type="radio" id="trainer" name="usertype" value="trainer">
+            <label for="trainer">Trainer</label><br>
+            <input type="radio" id="normalgymuser" name="usertype" value="normaluser">
+            <label for="normalgymuser">Normal gym user</label><br>
+
+        <button type="submit"> Submit</button>
+    </form>
+</body>
+</html>

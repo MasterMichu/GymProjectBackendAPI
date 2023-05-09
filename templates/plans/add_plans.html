@@ -1,0 +1,15 @@
+<h3>add plan</h3>
+<form method="POST">
+    <input type="text" name="plan" placeholder="plan name">
+    {% csrf_token %}
+    {% for key,value in exercises.items %}
+        <fieldset>
+            <legend><strong>{{key}}</strong></legend>
+            {% for i in value %}
+                <input type="checkbox" name="{{i|slugify}}" value="{{i|slugify}}">
+                <label> {{i}}</label><br>
+            {% endfor %}
+        </fieldset>
+    {% endfor %}
+    <input type="submit">
+</form>
