@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-fopd6&_0fzvk6u^$dh22pmuyh)!@#08*vjv++d2c3y$2&4ztng
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["api-gym-tracker.azurewebsites.net",'127.0.0.1',"gym-tracker-app.azurewebsites.net"]
 
 
 # Application definition
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,6 +69,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'gympage.urls'
@@ -136,12 +138,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 CORS_ALLOWED_ORIGINS = [
-        'http://172.30.134.239:3000', # dangerous
+        'http://172.30.134.239:3000',"http://gym-tracker-app.azurewebsites.net" # dangerous
     ]
 CORS_ORIGIN_ALLOW_ALL = True # dangerous
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000/', # dangerous
+    'http://localhost:3000/',"http://gym-tracker-app.azurewebsites.net" # dangerous
 ]
 STATIC_URL = 'static/'
 MEDIA_ROOT = "/media/"
@@ -165,3 +167,5 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 # Rest Framework config. Add all of this.
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT=BASE_DIR/'staticfiles'

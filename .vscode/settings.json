@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/da7f77bb-7705-41bc-af62-923bfc4e9b23/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Gym-tracker-app",
+    "appService.deploySubpath": "."
+}
